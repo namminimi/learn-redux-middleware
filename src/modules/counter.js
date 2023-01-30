@@ -8,6 +8,18 @@ export const increase = () => ({ type: INCREASE })
 
 export const decrease = () => ({ type: DECREASE })
 
+
+//thunk함수 사용   //함수를 리턴해줌  thunk는 dispatch를 직접 받을수 있음
+export const increaseAsync = () => dispatch => {
+    setTimeout(()=>{          //thunk는 함수를 리턴해줌
+        dispatch(increase())  //dispatch를 알아서 시킬수있음
+    },1000)
+}
+export const decreaseAsync = () => dispatch => {
+    setTimeout(()=>{
+        dispatch(decrease())
+    },1000)
+}
 //초기값(상태는 객체가 아니라 그냥 숫자나 문자여도 상관이 없음)
 const initialState = 0;
 

@@ -8,10 +8,11 @@ import rootReducer from './modules';
 import { Provider } from 'react-redux';
 //import myLogger from './middlewares/myLogger'; //우리가 만든거(핸드메이드)
 import logger from 'redux-logger';// 설치한 미들웨어
+import ReduxThunk from 'redux-thunk' //리덕스thunk
 
 
 //스토어 만들기
-const store =createStore(rootReducer, applyMiddleware(logger)); 
+const store =createStore(rootReducer, applyMiddleware(ReduxThunk, logger)); 
 // 미들웨어를 사용할때 매개변수로 applyMiddleware를 넣어준다
 console.log(store.getState());
 const root = ReactDOM.createRoot(document.getElementById('root'));
